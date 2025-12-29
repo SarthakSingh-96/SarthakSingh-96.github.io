@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARTHAK - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">SARTHAK</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Floating Social Icons -->
+    <div class="floating-social-icons">
+        <a href="https://github.com/SarthakSingh-96" target="_blank" class="social-icon" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sarthaksingh1211/" target="_blank" class="social-icon" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:sarthaksingh1211@gmail.com" class="social-icon" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section with Background Image -->
+    <section id="home" class="hero parallax-section">
+        <div class="setup-scene">
+            <img src="generated-image.png" alt="Workspace setup" class="hero-image">
+        </div>
+        <div class="hero-content">
+            <h1 class="glitch" data-text="Hi, I'm SARTHAK">Hi, I'm SARTHAK</h1>
+            <p class="subtitle">Full Stack Developer & Designer</p>
+            <p class="intro-text">I create beautiful and functional web experiences that solve real problems. Passionate about clean code, user experience, and continuous learning.</p>
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </div>
+        <div class="hero-resume-buttons">
+            <a href="Sarthak_Singh_SDE.pdf" download class="hero-resume-btn">
+                <i class="fas fa-download"></i>
+                <span>SDE Resume</span>
+            </a>
+            <a href="Sarthak_Singh_AIML.pdf" download class="hero-resume-btn">
+                <i class="fas fa-download"></i>
+                <span>AI/ML Resume</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="RAG System">
+                    </div>
+                    <div class="project-content">
+                        <h3>Enterprise RAG System with Multi-Document QA</h3>
+                        <p>Production RAG system processing 10K+ documents with 92% accuracy using FAISS vector indexing and GPT-4 for context-aware question answering.</p>
+                        <div class="project-tags">
+                            <span class="tag">LangChain</span>
+                            <span class="tag">OpenAI GPT-4</span>
+                            <span class="tag">Pinecone</span>
+                            <span class="tag">FastAPI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SarthakSingh-96/Enterprise-RAG-System-with-Multi-Document-QA" target="_blank" class="project-link" title="View Code on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80" alt="AI Agents">
+                    </div>
+                    <div class="project-content">
+                        <h3>Agent-Based MLOps Platform</h3>
+                        <p>Autonomous ML framework with 5 AI agents executing 50+ Optuna trials achieving 92% AUROC on 200K+ healthcare samples with explainable AI.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Streamlit</span>
+                            <span class="tag">XGBoost</span>
+                            <span class="tag">SHAP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SarthakSingh-96/Agent-Based-MLOps---MLOps-with-agents" target="_blank" class="project-link" title="View Code on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80" alt="3D Rendering">
+                    </div>
+                    <div class="project-content">
+                        <h3>Neural Radiance Fields (NeRF) 3D Reconstruction</h3>
+                        <p>GPU-accelerated NeRF pipeline with volumetric ray marching achieving 28.5 dB PSNR and 0.92 SSIM for high-quality 3D scene reconstruction.</p>
+                        <div class="project-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">CUDA</span>
+                            <span class="tag">JAX</span>
+                            <span class="tag">NumPy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SarthakSingh-96/Neural-Radiance-Fields-NeRF-3D-Reconstruction" target="_blank" class="project-link" title="View Code on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80" alt="Distributed Network">
+                    </div>
+                    <div class="project-content">
+                        <h3>Distributed Banking System with Consensus Protocol</h3>
+                        <p>Architected distributed banking application with Linear-PBFT consensus protocol ensuring Byzantine fault tolerance achieving 99.9% uptime and 1,000+ TPS.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">gRPC</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Redis</span>
+                            <span class="tag" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">Cannot release Code due to academic integrity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80" alt="Weather App">
+                </div>
+                <div class="project-content">
+                    <h3>Weather App</h3>
+                    <p>Interactive weather application providing real-time weather information and forecasts. Built with modern web technologies for a seamless user experience.</p>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Weather API</span>
+                        <span class="tag">Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/SarthakSingh-96/Weather-app" target="_blank" class="project-link" title="View Code on GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80" alt="Stock Prediction">
+                    </div>
+                    <div class="project-content">
+                        <h3>Stock Prediction</h3>
+                        <p>Machine learning-based stock price prediction system using historical data and advanced algorithms. Provides insights for market trend analysis and forecasting.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SarthakSingh-96/Stock-Prediction" target="_blank" class="project-link" title="View Code on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=80" alt="Football Analysis Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3>Football Analysis Dashboard</h3>
+                        <p>Interactive sports analytics dashboard for football data visualization and performance analysis. Features comprehensive statistics, player tracking, and team performance metrics.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Data Visualization</span>
+                            <span class="tag">Dashboard</span>
+                            <span class="tag">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SarthakSingh-96/Football-Analysis-Dashboard" target="_blank" class="project-link" title="View Code on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80" alt="EV Charging Optimization">
+                    </div>
+                    <div class="project-content">
+                        <h3>EV Charging Optimization using Stochastic Dynamic Programming</h3>
+                        <p>Advanced optimization system for electric vehicle charging infrastructure using stochastic dynamic programming. Optimizes charging schedules and resource allocation for maximum efficiency.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Optimization</span>
+                            <span class="tag">Dynamic Programming</span>
+                            <span class="tag">EV Technology</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SarthakSingh-96/EV-Charging-Optimization-using-Stochastic-Dynamic-Programming" target="_blank" class="project-link" title="View Code on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80" alt="Chatbot">
+                </div>
+                <div class="project-content">
+                    <h3>Chatbot</h3>
+                    <p>Intelligent conversational AI chatbot with natural language processing capabilities. Provides automated responses and interactive conversation for enhanced user engagement.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">AI</span>
+                        <span class="tag">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/SarthakSingh-96/Chatbot" target="_blank" class="project-link" title="View Code on GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80" alt="Youth Fitness Health Predictor">
+                    </div>
+                    <div class="project-content">
+                        <h3>Youth Fitness Health Predictor</h3>
+                        <p>Machine learning system predicting youth health outcomes using multi-modal data including physical measurements, fitness assessments, and behavioral analysis. Achieves high accuracy with LightGBM and custom threshold optimization using Quadratic Weighted Kappa metric.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">LightGBM</span>
+                            <span class="tag">Optuna</span>
+                            <span class="tag">Time Series</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SarthakSingh-96/Youth-Fitness-Health-Predictor" target="_blank" class="project-link" title="View Code on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&q=80" alt="Speech Emotion Recognition">
+                    </div>
+                    <div class="project-content">
+                        <h3>Speech-Based Movie Recommendation System</h3>
+                        <p>Emotion recognition system that analyzes speech patterns to detect emotions and recommends movies matching the detected emotional state. Combines audio processing with machine learning for personalized movie suggestions.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Audio Processing</span>
+                            <span class="tag">TensorFlow</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SarthakSingh-96/Speech-Based-Emotion-Recommendation-System" target="_blank" class="project-link" title="View Code on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills &amp; Technologies</h2>
+        <div class="skills-container">
+            <div class="skill-category fade-in">
+                <h3>Languages</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>C++</li>
+                    <li>Go</li>
+                    <li>SQL</li>
+                    <li>R</li>
+                    <li>JavaScript</li>
+                    <li>HTML/CSS</li>
+                    <li>Bash/Shell Scripting</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>ML/DL Frameworks</h3>
+                <ul>
+                    <li>PyTorch</li>
+                    <li>TensorFlow &amp; Keras</li>
+                    <li>JAX</li>
+                    <li>Hugging Face Transformers</li>
+                    <li>scikit-learn</li>
+                    <li>XGBoost &amp; LightGBM</li>
+                    <li>SHAP (Model Explainability)</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>LLM &amp; Gen AI</h3>
+                <ul>
+                    <li>LangChain &amp; LlamaIndex</li>
+                    <li>OpenAI API</li>
+                    <li>RAG Systems</li>
+                    <li>Fine-tuning (LoRA/QLoRA)</li>
+                    <li>Prompt Engineering</li>
+                    <li>Vector Databases (FAISS, Pinecone)</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Computer Vision &amp; NLP</h3>
+                <ul>
+                    <li>OpenCV</li>
+                    <li>YOLO, ResNet, ViT</li>
+                    <li>BERT, GPT, LSTM</li>
+                    <li>Transformers</li>
+                    <li>spaCy &amp; NLTK</li>
+                    <li>Librosa</li>
+                    <li>CUDA (GPU Computing)</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>MLOps &amp; Development</h3>
+                <ul>
+                    <li>Docker &amp; Kubernetes</li>
+                    <li>Git &amp; Jenkins</li>
+                    <li>MLflow &amp; Weights &amp; Biases</li>
+                    <li>DVC &amp; Airflow</li>
+                    <li>Optuna (Hyperparameter Tuning)</li>
+                    <li>FastAPI, Flask, Streamlit</li>
+                    <li>gRPC (Distributed Systems)</li>
+                    <li>React &amp; Node.js</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Cloud &amp; Databases</h3>
+                <ul>
+                    <li>AWS &amp; GCP</li>
+                    <li>PostgreSQL &amp; MongoDB</li>
+                    <li>Redis</li>
+                    <li>Apache Spark</li>
+                    <li>pandas &amp; NumPy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content fade-in">
+            <div class="about-image">
+                <img src="me.jpeg" alt="Sarthak - Full Stack Developer">
+            </div>
+            <div class="about-text">
+                <p>Hi, I'm Sarthak, a Computer Science grad student at Stony Brook University working on AI/ML and distributed systems.</p>
+                <p>I'm an AI engineer working on large language models, RAG systems, and MLOps platforms. I also build distributed systems, cloud-native applications, and scalable backends that handle production workloads. My work spans deep learning pipelines, consensus protocols, and end-to-end ML infrastructure—combining research with real-world impact.</p>
+                <div class="resume-buttons">
+                    <a href="Sarthak_Singh_SDE.pdf" download class="btn resume-btn">
+                        <span>💻 Download Resume (SDE)</span>
+                    </a>
+                    <a href="Sarthak_Singh_AIML.pdf" download class="btn resume-btn">
+                        <span>🤖 Download Resume (AI/ML)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <form class="contact-form fade-in" id="contactForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn"><span>Send Message</span></button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SARTHAK.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon"></div>
+                <h2 class="modal-title"></h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description"></p>
+                <div class="modal-details">
+                    <h3>Key Features:</h3>
+                    <ul class="modal-features"></ul>
+                </div>
+                <div class="modal-tech">
+                    <h3>Technologies Used:</h3>
+                    <div class="modal-tags"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
