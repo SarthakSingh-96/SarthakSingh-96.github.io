@@ -80,18 +80,40 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // Form submission
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    const form = this;
+    const formData = new FormData(form);
+    const button = form.querySelector('button[type="submit"]');
+    const buttonText = button.querySelector('span');
+    const originalText = buttonText.textContent;
     
-    // Here you would typically send the data to a server
-    alert(`Thank you for your message, ${name}! I'll get back to you soon.`);
+    // Show loading state
+    buttonText.textContent = 'Sending...';
+    button.disabled = true;
     
-    // Reset form
-    this.reset();
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            form.reset();
+        } else {
+            alert('Oops! There was a problem sending your message. Please try again or email me directly at sarthaksingh1211@gmail.com');
+        }
+    } catch (error) {
+        alert('Oops! There was a problem sending your message. Please try again or email me directly at sarthaksingh1211@gmail.com');
+    } finally {
+        buttonText.textContent = originalText;
+        button.disabled = false;
+    }
 });
 
 // Active navigation highlighting on scroll
