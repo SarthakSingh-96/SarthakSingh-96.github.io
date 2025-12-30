@@ -215,6 +215,10 @@ body.scrolled .hamburger span {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
+.nav-social-icons {
+    display: none;
+}
+
 nav a {
     color: #ffffff;
     text-decoration: none;
@@ -1206,6 +1210,42 @@ footer {
 
     body.scrolled .nav-menu a {
         color: #2d3748;
+    }
+
+    .nav-social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+    }
+
+    .nav-social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white !important;
+        text-shadow: none !important;
+        transition: all 0.3s ease;
+    }
+
+    .nav-social-link:hover {
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .nav-social-link i {
+        font-size: 1.2rem;
+    }
+
+    .floating-social-icons {
+        display: none;
     }
 
     /* Hero Section */
