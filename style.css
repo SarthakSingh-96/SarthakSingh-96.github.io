@@ -219,6 +219,12 @@ body.scrolled .hamburger span {
     display: none;
 }
 
+@media (max-width: 768px) {
+    .nav-social-icons {
+        display: flex !important;
+    }
+}
+
 nav a {
     color: #ffffff;
     text-decoration: none;
