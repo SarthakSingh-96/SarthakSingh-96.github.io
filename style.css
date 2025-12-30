@@ -1221,23 +1221,26 @@ footer {
     .nav-social-icons {
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 1.5rem;
-        padding: 1.5rem 0;
+        padding: 1.5rem 1rem;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         margin-top: 1rem;
+        width: 100%;
     }
 
     .nav-social-link {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white !important;
         text-shadow: none !important;
         transition: all 0.3s ease;
+        flex-shrink: 0;
     }
 
     .nav-social-link:hover {
