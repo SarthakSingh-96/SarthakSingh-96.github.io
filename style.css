@@ -301,9 +301,9 @@ body.scrolled .hero-image {
 .hero-scroll-mobile {
     display: none;
     position: absolute;
-    bottom: 2rem;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     z-index: 10;
     color: rgba(255, 255, 255, 0.95);
     font-weight: 600;
@@ -315,7 +315,7 @@ body.scrolled .hero-image {
 }
 
 .hero-scroll-mobile:hover {
-    transform: translateX(-50%) translateY(5px);
+    transform: translate(-50%, -50%) translateY(5px);
 }
 
 .hero-scroll-mobile .scroll-arrow {
