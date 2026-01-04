@@ -310,12 +310,14 @@ body.scrolled .hero-image {
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    margin-top: -3rem;
 }
 
 .hero-scroll-mobile:hover {
     transform: translate(-50%, -50%) translateY(5px);
+    margin-top: -3rem;
 }
 
 .hero-scroll-mobile .scroll-arrow {
