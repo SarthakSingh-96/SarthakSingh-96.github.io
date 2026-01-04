@@ -71,6 +71,14 @@ document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
     });
 });
 
+// Smooth scroll for mobile scroll indicator
+document.querySelector('.hero-scroll-mobile')?.addEventListener('click', () => {
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+    });
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
