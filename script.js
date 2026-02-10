@@ -303,6 +303,20 @@ function typeWriter(element, text, speed = 50) {
 // Project Modal Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const projectData = {
+        'CodeWeb - Code Dependency Visualizer': {
+            icon: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80',
+            description: 'A powerful VS Code extension that provides real-time visualization of code dependencies and impact analysis. Enables developers to see how changes to functions, classes, or variables ripple through their codebase before making modifications, reducing bugs and improving code understanding.',
+            features: [
+                'Real-time dependency graph visualization showing relationships between code elements',
+                'Impact analysis highlighting all code affected by potential changes',
+                'Interactive node exploration for functions, classes, variables, and imports',
+                'Integration with VS Code\'s native language services for accurate analysis',
+                'Support for TypeScript, JavaScript, and other popular languages',
+                'Performance-optimized for large codebases with thousands of files'
+            ],
+            tags: ['TypeScript', 'JavaScript', 'VS Code API', 'Code Analysis'],
+            gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+        },
         'Enterprise RAG System with Multi-Document QA': {
             icon: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80',
             description: 'Built a production-grade Retrieval-Augmented Generation (RAG) system capable of processing over 10,000 documents with 92% accuracy. Leverages FAISS vector indexing and OpenAI GPT-4 for context-aware question answering, enabling intelligent document retrieval and natural language understanding at enterprise scale.',
