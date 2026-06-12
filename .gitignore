@@ -10,3 +10,10 @@ Thumbs.db
 *.tmp
 *.bak
 *~
+
+# Dependencies and builds
+node_modules/
+dist/
+
+# Local dev logs
+vite-dev.*.log
