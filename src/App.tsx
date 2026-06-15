@@ -861,23 +861,23 @@ function SkillMapSection() {
           </div>
         </FadeIn>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(720px,1.15fr)_minmax(420px,0.85fr)] lg:items-stretch xl:gap-10">
+        <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.85fr)] lg:items-stretch xl:grid-cols-[minmax(0,1.15fr)_minmax(400px,0.85fr)] xl:gap-10">
           <FadeIn delay={0.1} className="hidden md:block">
-            <div className="min-h-[620px] rounded-[32px] border border-[#D7E2EA]/15 bg-[#111316] p-6 shadow-2xl shadow-black/30 xl:p-8">
-              <div className="grid h-full min-h-[568px] grid-cols-[190px_1fr] gap-6 xl:grid-cols-[230px_1fr] xl:gap-8">
-                <div className="flex flex-col items-center justify-center rounded-[28px] border border-[#D7E2EA]/15 bg-[#0C0C0C]/70 px-5 text-center">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full border border-[#D7E2EA]/25 bg-[#D7E2EA]/5">
+            <div className="min-h-[620px] min-w-0 rounded-[32px] border border-[#D7E2EA]/15 bg-[#111316] p-5 shadow-2xl shadow-black/30 xl:p-8">
+              <div className="grid h-full min-h-[568px] min-w-0 grid-cols-[minmax(150px,0.34fr)_minmax(0,1fr)] gap-5 xl:grid-cols-[minmax(210px,0.38fr)_minmax(0,1fr)] xl:gap-8">
+                <div className="flex min-w-0 flex-col items-center justify-center rounded-[28px] border border-[#D7E2EA]/15 bg-[#0C0C0C]/70 px-4 text-center xl:px-5">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#D7E2EA]/25 bg-[#D7E2EA]/5 xl:h-20 xl:w-20">
                     <Network className="h-8 w-8 text-[#D7E2EA]" aria-hidden="true" />
                   </div>
                   <p className="mt-5 text-xs font-medium uppercase tracking-[0.22em] text-[#D7E2EA]/50">
                     Portfolio
                   </p>
-                  <p className="mt-2 text-2xl font-black uppercase leading-none text-[#D7E2EA]">
+                  <p className="mt-2 text-xl font-black uppercase leading-none text-[#D7E2EA] xl:text-2xl">
                     Skill Graph
                   </p>
                 </div>
 
-                <div className="relative grid content-center gap-4 xl:gap-5">
+                <div className="relative grid min-w-0 content-center gap-4 xl:gap-5">
                   <div
                     className="absolute bottom-10 left-[35px] top-10 w-px bg-[#D7E2EA]/15"
                     aria-hidden="true"
@@ -895,7 +895,7 @@ function SkillMapSection() {
                         onMouseEnter={() => setActiveSkillId(skill.id)}
                         whileHover={{ x: 6 }}
                         whileTap={{ scale: 0.99 }}
-                        className="relative z-10 grid min-h-[92px] grid-cols-[72px_minmax(150px,0.75fr)] items-center gap-4 rounded-[24px] border p-4 text-left transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#D7E2EA]/70 xl:grid-cols-[72px_minmax(180px,0.7fr)_minmax(260px,1fr)]"
+                        className="relative z-10 grid min-h-[92px] min-w-0 grid-cols-[56px_minmax(0,1fr)] items-center gap-3 rounded-[24px] border p-3 text-left transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#D7E2EA]/70 xl:grid-cols-[72px_minmax(160px,0.7fr)_minmax(0,1fr)] xl:gap-4 xl:p-4"
                         style={{
                           borderColor: isActive
                             ? skill.accent
@@ -909,15 +909,15 @@ function SkillMapSection() {
                         }}
                         aria-pressed={isActive}
                       >
-                        <span className="flex h-16 w-16 items-center justify-center rounded-2xl border bg-[#0C0C0C]">
+                        <span className="flex h-14 w-14 items-center justify-center rounded-2xl border bg-[#0C0C0C] xl:h-16 xl:w-16">
                           <Icon
                             className="h-7 w-7"
                             style={{ color: skill.accent }}
                             aria-hidden="true"
                           />
                         </span>
-                        <span>
-                          <span className="block text-lg font-semibold uppercase leading-tight tracking-wider text-[#D7E2EA]">
+                        <span className="min-w-0">
+                          <span className="block text-base font-semibold uppercase leading-tight tracking-wider text-[#D7E2EA] xl:text-lg">
                             {skill.name}
                           </span>
                           <span className="mt-1 block text-sm font-light leading-relaxed text-[#D7E2EA]/55">
@@ -952,7 +952,7 @@ function SkillMapSection() {
                   key={skill.id}
                   type="button"
                   onClick={() => setActiveSkillId(skill.id)}
-                  className="flex items-center justify-between rounded-[24px] border p-4 text-left transition duration-200"
+                  className="flex min-w-0 items-center justify-between gap-4 rounded-[24px] border p-4 text-left transition duration-200"
                   style={{
                     borderColor: isActive ? skill.accent : "rgba(215,226,234,0.18)",
                     background: isActive
@@ -961,13 +961,13 @@ function SkillMapSection() {
                   }}
                   aria-pressed={isActive}
                 >
-                  <span className="flex items-center gap-3">
+                  <span className="flex min-w-0 items-center gap-3">
                     <Icon
                       className="h-6 w-6"
                       style={{ color: skill.accent }}
                       aria-hidden="true"
                     />
-                    <span className="text-base font-semibold uppercase tracking-wider text-[#D7E2EA]">
+                    <span className="min-w-0 text-base font-semibold uppercase tracking-wider text-[#D7E2EA]">
                       {skill.name}
                     </span>
                   </span>
