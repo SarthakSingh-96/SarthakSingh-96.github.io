@@ -16,4 +16,4 @@ node_modules/
 dist/
 
 # Local dev logs
-vite-dev.*.log
+vite-dev*.log

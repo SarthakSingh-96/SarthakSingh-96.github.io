@@ -30,9 +30,34 @@
     <meta name="twitter:image" content="/bitmoji-transparent.png" />
     <link rel="icon" type="image/png" href="/bitmoji-transparent.png" />
     <title>Sarthak Singh | AI/ML Engineer</title>
+    <style>
+      body {
+        background: #0c0c0c;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.setTimeout(function () {
+        var root = document.getElementById("root");
+        if (!root || root.childElementCount > 0 || window.__portfolioFallbackLoaded) {
+          return;
+        }
+
+        window.__portfolioFallbackLoaded = true;
+
+        var css = document.createElement("link");
+        css.rel = "stylesheet";
+        css.href = "/assets/index.css";
+        document.head.appendChild(css);
+
+        var script = document.createElement("script");
+        script.type = "module";
+        script.src = "/assets/index.js";
+        document.body.appendChild(script);
+      }, 1200);
+    </script>
   </body>
 </html>
