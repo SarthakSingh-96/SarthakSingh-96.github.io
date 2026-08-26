@@ -125,8 +125,14 @@ const skillMap = [
     accent: "#F8B84E",
     description:
       "API design, data workflows, distributed services, consensus protocols, caching, and backend-heavy product architecture.",
-    tools: ["Python", "Go", "gRPC", "Redis", "SQL"],
-    projects: ["Distributed Banking System", "CodeWeb", "EV Charging Optimization"],
+    tools: ["Python", "C++", "Go", "gRPC", "Redis"],
+    projects: [
+      "Distributed Banking System",
+      "Embedded Linux Protocol Gateway",
+      "Ring All-Reduce Benchmark",
+      "CodeWeb",
+      "EV Charging Optimization",
+    ],
   },
   {
     id: "frontend",
@@ -153,7 +159,11 @@ const skillMap = [
     description:
       "Repeatable ML workflows, experiment tracking, containerized systems, orchestration, and deployment-minded infrastructure.",
     tools: ["Docker", "Kubernetes", "MLflow", "Airflow", "AWS"],
-    projects: ["Agent-Based MLOps Platform", "Enterprise RAG System"],
+    projects: [
+      "Agent-Based MLOps Platform",
+      "Ring All-Reduce Benchmark",
+      "Enterprise RAG System",
+    ],
   },
 ] as const;
 
@@ -354,9 +364,39 @@ const projects = [
     ],
     link: "https://github.com/SarthakSingh-96/Distributed-Banking-System",
   },
+  {
+    number: "15",
+    category: "Embedded Systems",
+    name: "Embedded Linux Protocol Gateway",
+    description:
+      "A C++17 embedded gateway simulator that collects UART, I2C, and SPI-style packets, validates CRC-16 frames, and forwards valid traffic through a retrying uplink control plane.",
+    tags: ["C++17", "CMake", "Embedded Linux", "CTest"],
+    details: [
+      "Models UART, I2C, and SPI producers feeding a thread-safe bounded ring buffer.",
+      "Validates packet framing and CRC-16/CCITT integrity before uplink forwarding.",
+      "Includes retry, backoff, drop handling, fault injection, and CTest protocol coverage.",
+    ],
+    link: "https://github.com/SarthakSingh-96/embedded-linux-protocol-gateway",
+  },
+  {
+    number: "16",
+    category: "Distributed ML",
+    name: "Ring All-Reduce Benchmark",
+    description:
+      "A from-scratch PyTorch distributed benchmark that implements ring all-reduce with point-to-point communication and compares bandwidth against the built-in collective.",
+    tags: ["PyTorch", "Distributed Training", "Gloo", "NCCL"],
+    details: [
+      "Implements scatter-reduce and all-gather over N local worker processes.",
+      "Benchmarks manual ring communication against torch.distributed all_reduce.",
+      "Generates CSV and plot outputs for bandwidth gap analysis across message sizes.",
+    ],
+    link: "https://github.com/SarthakSingh-96/ring-allreduce-benchmark",
+  },
 ];
 
-const featuredProjectNames = new Set([
+const featuredProjectNames = [
+  "Ring All-Reduce Benchmark",
+  "Embedded Linux Protocol Gateway",
   "CodeWeb",
   "Enterprise RAG System",
   "Agent-Based MLOps Platform",
@@ -364,13 +404,13 @@ const featuredProjectNames = new Set([
   "NeRF 3D Reconstruction",
   "EV Charging Optimization",
   "Movie Explorer",
-]);
+];
 
-const featuredProjects = projects.filter((project) =>
-  featuredProjectNames.has(project.name),
-);
+const featuredProjects = featuredProjectNames
+  .map((name) => projects.find((project) => project.name === name))
+  .filter((project): project is (typeof projects)[number] => Boolean(project));
 const moreProjects = projects.filter(
-  (project) => !featuredProjectNames.has(project.name),
+  (project) => !featuredProjectNames.includes(project.name),
 );
 
 type FadeInProps<T extends ElementType = "div"> = {
@@ -561,6 +601,8 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
     GenAI: "#FF5D8F",
     "Agentic ML": "#B98CFF",
     "Distributed Systems": "#F8B84E",
+    "Embedded Systems": "#34D399",
+    "Distributed ML": "#A78BFA",
     "3D Vision": "#27C4A8",
     Optimization: "#F97316",
     "Full-Stack": "#60A5FA",
@@ -602,6 +644,16 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
       { label: "Latency reduction", value: 74 },
       { label: "Failover design", value: 87 },
     ],
+    "Embedded Linux Protocol Gateway": [
+      { label: "Protocol coverage", value: 90 },
+      { label: "CRC validation", value: 96 },
+      { label: "Retry handling", value: 84 },
+    ],
+    "Ring All-Reduce Benchmark": [
+      { label: "Ring schedule", value: 92 },
+      { label: "Benchmark sweep", value: 86 },
+      { label: "Gap analysis", value: 88 },
+    ],
   };
   const metrics =
     metricsByProject[project.name] ??
@@ -617,6 +669,8 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
     "Agent-Based MLOps Platform": ["Prepare Data", "Tune Models", "Explain Results"],
     "NeRF 3D Reconstruction": ["Load Views", "Train Radiance Field", "Render Scene"],
     "Distributed Banking System": ["Receive Transaction", "Run Consensus", "Commit State"],
+    "Embedded Linux Protocol Gateway": ["Read Device Frames", "Validate CRC", "Retry Uplink"],
+    "Ring All-Reduce Benchmark": ["Split Tensor", "Scatter Reduce", "All Gather"],
   };
   const architectureSteps =
     architectureStepsByProject[project.name] ??
