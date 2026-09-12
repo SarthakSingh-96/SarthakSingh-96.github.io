@@ -49,5 +49,4 @@ GitHub Actions
 Files in `public/` are served from the site root. The portfolio uses this folder for:
 
 - `bitmoji-transparent.png`
-- `Sarthak_Singh_SDE.pdf`
-- `Sarthak_Singh_AIML.pdf`
+- `sarthaksingh.pdf`

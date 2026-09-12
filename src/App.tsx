@@ -21,20 +21,27 @@ import {
   Cloud,
   Code2,
   Database,
+  Download,
   FileText,
+  Gamepad2,
   Github,
   Linkedin,
   type LucideIcon,
   Mail,
-  Network,
+  Rocket,
+  User,
 } from "lucide-react";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import { BlackjackGame } from "@/components/ui/blackjack-game";
+import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import { ThemeToggleButton } from "@/components/ui/skiper26";
 
 const portraitUrl =
   "/bitmoji-transparent.png";
 
 const resumeLinks = {
-  software: "/Sarthak_Singh_SDE.pdf",
-  aiMl: "/Sarthak_Singh_AIML.pdf",
+  software: "/sarthaksingh.pdf",
+  aiMl: "/sarthaksingh.pdf",
 };
 
 const profileLinks = {
@@ -42,6 +49,62 @@ const profileLinks = {
   linkedin: "https://www.linkedin.com/in/sarthaksingh1211/",
   email: "mailto:sarthaksingh1211@gmail.com",
 };
+
+const dockIconClass = "h-full w-full text-[#D7E2EA]/75";
+
+const dockItems = [
+  {
+    title: "Home",
+    icon: <Rocket className={dockIconClass} aria-hidden="true" />,
+    href: "#top",
+  },
+  {
+    title: "Skills",
+    icon: <BrainCircuit className={dockIconClass} aria-hidden="true" />,
+    href: "#skills",
+  },
+  {
+    title: "About",
+    icon: <User className={dockIconClass} aria-hidden="true" />,
+    href: "#about",
+  },
+  {
+    title: "Build",
+    icon: <Code2 className={dockIconClass} aria-hidden="true" />,
+    href: "#build",
+  },
+  {
+    title: "Projects",
+    icon: <FileText className={dockIconClass} aria-hidden="true" />,
+    href: "#projects",
+  },
+  {
+    title: "RESUME",
+    icon: <Download className={dockIconClass} aria-hidden="true" />,
+    href: resumeLinks.software,
+    download: "sarthaksingh.pdf",
+  },
+  {
+    title: "Blackjack",
+    icon: <Gamepad2 className={dockIconClass} aria-hidden="true" />,
+    href: "#blackjack",
+  },
+  {
+    title: "GitHub",
+    icon: <Github className={dockIconClass} aria-hidden="true" />,
+    href: profileLinks.github,
+  },
+  {
+    title: "LinkedIn",
+    icon: <Linkedin className={dockIconClass} aria-hidden="true" />,
+    href: profileLinks.linkedin,
+  },
+  {
+    title: "Email",
+    icon: <Mail className={dockIconClass} aria-hidden="true" />,
+    href: profileLinks.email,
+  },
+];
 
 const aboutImages = {
   moon: "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png",
@@ -406,12 +469,12 @@ const featuredProjectNames = [
   "Movie Explorer",
 ];
 
-const featuredProjects = featuredProjectNames
-  .map((name) => projects.find((project) => project.name === name))
-  .filter((project): project is (typeof projects)[number] => Boolean(project));
-const moreProjects = projects.filter(
-  (project) => !featuredProjectNames.includes(project.name),
-);
+const orderedProjects = [
+  ...featuredProjectNames
+    .map((name) => projects.find((project) => project.name === name))
+    .filter((project): project is (typeof projects)[number] => Boolean(project)),
+  ...projects.filter((project) => !featuredProjectNames.includes(project.name)),
+];
 
 type FadeInProps<T extends ElementType = "div"> = {
   as?: T;
@@ -567,12 +630,14 @@ function ResourceLink({
   icon: LucideIcon;
 }) {
   const isExternal = href.startsWith("http");
+  const isDownload = href.endsWith(".pdf") && !isExternal;
 
   return (
     <a
       href={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
+      download={isDownload ? "sarthaksingh.pdf" : undefined}
       className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#D7E2EA]/30 bg-[#D7E2EA]/5 px-4 text-xs font-medium uppercase tracking-widest text-[#D7E2EA] transition duration-200 hover:border-[#D7E2EA]/70 hover:bg-[#D7E2EA]/10 sm:h-12 sm:px-5"
     >
       <Icon className="h-4 w-4" aria-hidden="true" />
@@ -777,39 +842,15 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
 }
 
 function HeroSection() {
-  const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Skill Map", href: "#skills" },
-    { label: "What I Build", href: "#build" },
-    { label: "Projects", href: "#projects" },
-    { label: "Resume", href: resumeLinks.software },
-    { label: "Contact", href: profileLinks.email },
-  ];
-
   return (
-    <section className="relative flex h-screen flex-col overflow-x-clip bg-[#0C0C0C]">
-      <FadeIn
-        as="nav"
-        delay={0}
-        y={-20}
-        className="relative z-30 flex w-full flex-wrap justify-center gap-x-5 gap-y-3 px-6 pt-6 text-xs font-medium uppercase tracking-wider text-[#D7E2EA] sm:justify-between sm:text-sm md:px-10 md:pt-8 md:text-base lg:text-[1.1rem] xl:text-[1.25rem]"
-        aria-label="Primary navigation"
-      >
-        {navItems.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            className="transition-opacity duration-200 hover:opacity-70"
-          >
-            {item.label}
-          </a>
-        ))}
-      </FadeIn>
-
+    <section
+      id="blackjack"
+      className="relative flex h-screen flex-col overflow-x-clip bg-[#0C0C0C]"
+    >
       <FadeIn
         delay={0.15}
         y={40}
-        className="relative z-20 mt-16 w-full overflow-hidden sm:mt-14 md:mt-10"
+        className="relative z-20 mt-12 w-full overflow-hidden sm:mt-14 md:mt-16"
       >
         <h1 className="hero-heading w-full whitespace-nowrap text-center text-[9vw] font-black uppercase leading-none tracking-tight sm:text-[9.6vw] md:text-[10.2vw] lg:text-[11.2vw]">
           Hi, Sarthak here !
@@ -834,50 +875,21 @@ function HeroSection() {
         </FadeIn>
       </div>
 
-      <div className="relative z-20 mt-auto flex items-end justify-between px-6 pb-7 sm:pb-8 md:px-10 md:pb-10">
+      <FadeIn
+        delay={0.75}
+        x={36}
+        y={0}
+        className="absolute right-5 top-[30%] z-10 hidden w-[290px] max-w-[18vw] opacity-90 2xl:block 2xl:right-8"
+      >
+        <BlackjackGame compact />
+      </FadeIn>
+
+      <div className="relative z-20 mt-auto flex items-end px-6 pb-7 sm:pb-8 md:px-10 md:pb-10">
         <FadeIn delay={0.35} y={20}>
-          <div className="max-w-[210px] sm:max-w-[360px] md:max-w-[520px]">
+          <div className="max-w-[210px] sm:max-w-[720px]">
             <p className="text-[clamp(0.75rem,1.4vw,1.5rem)] font-light uppercase leading-snug tracking-wide text-[#D7E2EA]">
               AI/ML engineer building RAG systems, ML platforms, and backend-heavy products
             </p>
-            <div className="mt-4 hidden flex-wrap gap-2 sm:flex">
-              <ResourceLink href={resumeLinks.software} label="SDE Resume" icon={FileText} />
-              <ResourceLink href={profileLinks.github} label="GitHub" icon={Github} />
-              <ResourceLink href={profileLinks.linkedin} label="LinkedIn" icon={Linkedin} />
-            </div>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.5} y={20}>
-          <div className="flex flex-col items-end gap-3">
-            <ContactButton />
-            <div className="flex gap-2 sm:hidden">
-              <a
-                href={resumeLinks.software}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#D7E2EA]/35 bg-[#D7E2EA]/5 text-[#D7E2EA]"
-                aria-label="Open software engineering resume"
-              >
-                <FileText className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a
-                href={profileLinks.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#D7E2EA]/35 bg-[#D7E2EA]/5 text-[#D7E2EA]"
-                aria-label="Open GitHub profile"
-              >
-                <Github className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a
-                href={profileLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#D7E2EA]/35 bg-[#D7E2EA]/5 text-[#D7E2EA]"
-                aria-label="Open LinkedIn profile"
-              >
-                <Linkedin className="h-5 w-5" aria-hidden="true" />
-              </a>
-            </div>
           </div>
         </FadeIn>
       </div>
@@ -895,6 +907,22 @@ function SkillMapSection() {
   const activeProjects = projects.filter((project) =>
     activeSkillProjects.includes(project.name),
   );
+  const skillTimelineData = skillMap.map((skill, index) => {
+    const previousId = index === 0 ? skillMap.length : index;
+    const nextId = index === skillMap.length - 1 ? 1 : index + 2;
+
+    return {
+      id: index + 1,
+      title: skill.shortName,
+      date: `${skill.projects.length} projects`,
+      content: skill.description,
+      category: skill.id,
+      icon: skill.icon,
+      relatedIds: [previousId, nextId],
+      status: index < 2 ? ("completed" as const) : ("in-progress" as const),
+      energy: Math.min(100, 58 + skill.projects.length * 8),
+    };
+  });
 
   return (
     <section
@@ -917,83 +945,19 @@ function SkillMapSection() {
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.85fr)] lg:items-stretch xl:grid-cols-[minmax(0,1.15fr)_minmax(400px,0.85fr)] xl:gap-10">
           <FadeIn delay={0.1} className="hidden md:block">
-            <div className="min-h-[620px] min-w-0 rounded-[32px] border border-[#D7E2EA]/15 bg-[#111316] p-5 shadow-2xl shadow-black/30 xl:p-8">
-              <div className="grid h-full min-h-[568px] min-w-0 grid-cols-[minmax(150px,0.34fr)_minmax(0,1fr)] gap-5 xl:grid-cols-[minmax(210px,0.38fr)_minmax(0,1fr)] xl:gap-8">
-                <div className="flex min-w-0 flex-col items-center justify-center rounded-[28px] border border-[#D7E2EA]/15 bg-[#0C0C0C]/70 px-4 text-center xl:px-5">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#D7E2EA]/25 bg-[#D7E2EA]/5 xl:h-20 xl:w-20">
-                    <Network className="h-8 w-8 text-[#D7E2EA]" aria-hidden="true" />
-                  </div>
-                  <p className="mt-5 text-xs font-medium uppercase tracking-[0.22em] text-[#D7E2EA]/50">
-                    Portfolio
-                  </p>
-                  <p className="mt-2 text-xl font-black uppercase leading-none text-[#D7E2EA] xl:text-2xl">
-                    Skill Graph
-                  </p>
-                </div>
-
-                <div className="relative grid min-w-0 content-center gap-4 xl:gap-5">
-                  <div
-                    className="absolute bottom-10 left-[35px] top-10 w-px bg-[#D7E2EA]/15"
-                    aria-hidden="true"
-                  />
-
-                  {skillMap.map((skill) => {
-                    const Icon = skill.icon;
-                    const isActive = skill.id === activeSkill.id;
-
-                    return (
-                      <motion.button
-                        key={skill.id}
-                        type="button"
-                        onClick={() => setActiveSkillId(skill.id)}
-                        onMouseEnter={() => setActiveSkillId(skill.id)}
-                        whileHover={{ x: 6 }}
-                        whileTap={{ scale: 0.99 }}
-                        className="relative z-10 grid min-h-[92px] min-w-0 grid-cols-[56px_minmax(0,1fr)] items-center gap-3 rounded-[24px] border p-3 text-left transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#D7E2EA]/70 xl:grid-cols-[72px_minmax(160px,0.7fr)_minmax(0,1fr)] xl:gap-4 xl:p-4"
-                        style={{
-                          borderColor: isActive
-                            ? skill.accent
-                            : "rgba(215,226,234,0.16)",
-                          background: isActive
-                            ? `linear-gradient(90deg, ${skill.accent}24, rgba(215,226,234,0.06))`
-                            : "rgba(215,226,234,0.045)",
-                          boxShadow: isActive
-                            ? `0 18px 50px ${skill.accent}18`
-                            : "none",
-                        }}
-                        aria-pressed={isActive}
-                      >
-                        <span className="flex h-14 w-14 items-center justify-center rounded-2xl border bg-[#0C0C0C] xl:h-16 xl:w-16">
-                          <Icon
-                            className="h-7 w-7"
-                            style={{ color: skill.accent }}
-                            aria-hidden="true"
-                          />
-                        </span>
-                        <span className="min-w-0">
-                          <span className="block text-base font-semibold uppercase leading-tight tracking-wider text-[#D7E2EA] xl:text-lg">
-                            {skill.name}
-                          </span>
-                          <span className="mt-1 block text-sm font-light leading-relaxed text-[#D7E2EA]/55">
-                            {skill.projects.length} related projects
-                          </span>
-                        </span>
-                        <span className="hidden flex-wrap justify-end gap-2 xl:flex">
-                          {skill.tools.slice(0, 3).map((tool) => (
-                            <span
-                              key={tool}
-                              className="rounded-full border border-[#D7E2EA]/15 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-widest text-[#D7E2EA]/65"
-                            >
-                              {tool}
-                            </span>
-                          ))}
-                        </span>
-                      </motion.button>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
+            <RadialOrbitalTimeline
+              timelineData={skillTimelineData}
+              className="min-h-[620px] shadow-2xl shadow-black/30"
+              onActiveItemChange={(item) => {
+                if (!item) return;
+                const nextSkill = skillMap.find(
+                  (skill) => skill.id === item.category,
+                );
+                if (nextSkill) {
+                  setActiveSkillId(nextSkill.id);
+                }
+              }}
+            />
           </FadeIn>
 
           <FadeIn delay={0.1} className="grid gap-3 md:hidden">
@@ -1181,7 +1145,7 @@ function AboutSection() {
         <FadeIn delay={0.25} y={20} className="mt-16 sm:mt-20 md:mt-24">
           <div className="flex flex-wrap items-center justify-center gap-3">
             <ContactButton />
-            <ResourceLink href={resumeLinks.aiMl} label="AI/ML Resume" icon={FileText} />
+            <ResourceLink href={resumeLinks.aiMl} label="RESUME" icon={FileText} />
             <ResourceLink href={profileLinks.email} label="Email" icon={Mail} />
           </div>
         </FadeIn>
@@ -1297,77 +1261,61 @@ function ProjectsSection() {
         </h2>
       </FadeIn>
 
-      <div className="mx-auto max-w-7xl">
-        {featuredProjects.map((project, index) => (
-          <ProjectCard
-            key={project.number}
-            project={project}
-            index={index}
-            totalCards={featuredProjects.length}
-          />
+      <div className="mx-auto grid max-w-7xl gap-3 md:grid-cols-2 xl:grid-cols-3">
+        {orderedProjects.map((project, index) => (
+          <ProjectGridCard key={project.number} project={project} index={index} />
         ))}
       </div>
-
-      <MoreProjects />
     </section>
   );
 }
 
-function MoreProjects() {
+function ProjectGridCard({
+  project,
+  index,
+}: {
+  project: (typeof projects)[number];
+  index: number;
+}) {
   return (
-    <FadeIn className="mx-auto mt-12 max-w-7xl sm:mt-16 md:mt-24">
-      <div className="flex flex-col gap-4 border-t border-[#D7E2EA]/20 pt-8 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p className="text-xs font-medium uppercase tracking-[0.24em] text-[#D7E2EA]/45">
-            More projects
-          </p>
-          <h3 className="mt-3 text-[clamp(2rem,5vw,4.8rem)] font-black uppercase leading-none text-[#D7E2EA]">
-            Supporting Work
-          </h3>
-        </div>
-        <p className="max-w-xl text-sm font-light leading-relaxed text-[#D7E2EA]/65 sm:text-base">
-          Additional projects that round out the portfolio without making every
-          case study compete for the same screen space.
-        </p>
-      </div>
-
-      <div className="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-        {moreProjects.map((project) => (
-          <a
-            key={project.name}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex min-h-[180px] flex-col justify-between rounded-[28px] border border-[#D7E2EA]/15 bg-[#D7E2EA]/5 p-5 transition duration-200 hover:border-[#D7E2EA]/45 hover:bg-[#D7E2EA]/10"
-          >
-            <span>
-              <span className="text-xs font-light uppercase tracking-widest text-[#D7E2EA]/45">
-                {project.category}
-              </span>
-              <span className="mt-2 block text-xl font-semibold uppercase leading-tight text-[#D7E2EA]">
-                {project.name}
-              </span>
-              <span className="mt-3 block text-sm font-light leading-relaxed text-[#D7E2EA]/65">
-                {project.description}
-              </span>
+    <FadeIn delay={index * 0.04}>
+      <a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex h-full min-h-[280px] flex-col justify-between rounded-[28px] border border-[#D7E2EA]/15 bg-[#D7E2EA]/5 p-5 transition duration-200 hover:border-[#D7E2EA]/45 hover:bg-[#D7E2EA]/10"
+      >
+        <span>
+          <span className="flex items-center justify-between gap-4">
+            <span className="text-[clamp(2.3rem,5vw,4.8rem)] font-black leading-none text-[#D7E2EA]/85">
+              {project.number}
             </span>
-            <span className="mt-5 flex flex-wrap items-center gap-2">
-              {project.tags.slice(0, 3).map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-[#D7E2EA]/15 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-widest text-[#D7E2EA]/65"
-                >
-                  {tag}
-                </span>
-              ))}
-              <ArrowUpRight
-                className="ml-auto h-5 w-5 text-[#D7E2EA]/45 transition duration-200 group-hover:text-[#D7E2EA]"
-                aria-hidden="true"
-              />
+            <ArrowUpRight
+              className="h-5 w-5 shrink-0 text-[#D7E2EA]/45 transition duration-200 group-hover:text-[#D7E2EA]"
+              aria-hidden="true"
+            />
+          </span>
+          <span className="mt-5 block text-xs font-light uppercase tracking-widest text-[#D7E2EA]/45">
+            {project.category}
+          </span>
+          <span className="mt-2 block text-xl font-semibold uppercase leading-tight text-[#D7E2EA]">
+            {project.name}
+          </span>
+          <span className="mt-3 block text-sm font-light leading-relaxed text-[#D7E2EA]/65">
+            {project.description}
+          </span>
+        </span>
+        <span className="mt-6 flex flex-wrap items-center gap-2">
+          {project.tags.slice(0, 3).map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-[#D7E2EA]/15 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-widest text-[#D7E2EA]/65"
+            >
+              {tag}
             </span>
-          </a>
-        ))}
-      </div>
+          ))}
+        </span>
+      </a>
     </FadeIn>
   );
 }
@@ -1455,6 +1403,7 @@ function ProjectCard({
 export default function App() {
   return (
     <main
+      id="top"
       className="min-h-screen bg-[#0C0C0C] font-kanit text-[#D7E2EA]"
       style={{ overflowX: "clip" }}
     >
@@ -1463,6 +1412,12 @@ export default function App() {
       <AboutSection />
       <ServicesSection />
       <ProjectsSection />
+      <div className="fixed right-5 top-5 z-50">
+        <ThemeToggleButton variant="circle-blur" start="top-right" />
+      </div>
+      <div className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2">
+        <FloatingDock items={dockItems} mobileClassName="translate-y-0" />
+      </div>
     </main>
   );
 }
